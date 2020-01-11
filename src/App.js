@@ -1,9 +1,11 @@
 import React from 'react';
-
+import Header from './Componentes/Header';
 
 function App() {
   return (
-    <div className="App">
+    <div className="container">
+      <Header
+        titulo={'Administrador de pacientes de veterinaria'}/>
       
     </div>
   );
