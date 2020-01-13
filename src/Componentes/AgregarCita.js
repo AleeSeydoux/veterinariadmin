@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import uuid from 'uuid';
 
 class AgregarCita extends Component {
 
@@ -13,8 +14,24 @@ class AgregarCita extends Component {
 
     crearNuevaCita = e => {
         e.preventDefault();
-        console.log(this.nombreMascotaRef.current.value);
-        this.props.crearCita();
+
+        const mascota = this.nombreMascotaRef.current.value,
+            propietario = this.propietarioRef.current.value,
+            fecha = this.fechaRef.current.value,
+            hora = this.horaRef.current.value,
+            sintomas = this.sintomasRef.current.value;
+
+        const nuevaCita = {
+            id : uuid(),
+            mascota,
+            propietario,
+            fecha,
+            hora,
+            sintomas
+        }
+
+
+        this.props.crearCita(nuevaCita);
     }
 
     render() {
