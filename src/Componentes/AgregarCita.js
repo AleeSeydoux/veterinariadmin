@@ -10,8 +10,10 @@ class AgregarCita extends Component {
     horaRef = React.createRef();
     sintomasRef = React.createRef();
 
-    state = {        }
-//video7
+    state = {     
+        error: false
+       }
+
     crearNuevaCita = e => {
         e.preventDefault();
 
@@ -21,23 +23,37 @@ class AgregarCita extends Component {
             hora = this.horaRef.current.value,
             sintomas = this.sintomasRef.current.value;
 
-        const nuevaCita = {
-            id : uuid(),
-            mascota,
-            propietario,
-            fecha,
-            hora,
-            sintomas
-        }
+            if(mascota === '' || propietario === ''|| fecha === '' || hora === '' || sintomas === '') {
+                this.setState({
+                    error:true
+                })
+            } else {
 
-//se envia el objeto hacia el padree para actualizar el state
-        this.props.crearCita(nuevaCita);
+                const nuevaCita = {
+                    id : uuid(),
+                    mascota,
+                    propietario,
+                    fecha,
+                    hora,
+                    sintomas
+                }
+        
+        //se envia el objeto hacia el padree para actualizar el state
+                this.props.crearCita(nuevaCita);
+        
+                //Reiniciar el formulario
+                e.currentTarget.reset();
 
-        //Reiniciar el formulario
-        e.currentTarget.reset();
+                //Elimine el error
+                tthis.setState({
+                    error: false
+                })
+            }
+
     }
 
     render() {
+        const existeError = this.state.error;
         return ( 
             <div className= "card mt-5">
                 <div className= "card-body">
@@ -80,6 +96,8 @@ class AgregarCita extends Component {
                             </div>
                         </div>
                     </form>
+                    {existeError ? <div className= "alert alert-danger text-center"> Tedos
+                    los campos son obligatorios </div> : ''}
                 </div> 
             </div>
         );
