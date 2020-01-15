@@ -10,8 +10,8 @@ class AgregarCita extends Component {
     horaRef = React.createRef();
     sintomasRef = React.createRef();
 
-    state = {    }
-
+    state = {        }
+//video7
     crearNuevaCita = e => {
         e.preventDefault();
 
@@ -30,8 +30,11 @@ class AgregarCita extends Component {
             sintomas
         }
 
-
+//se envia el objeto hacia el padree para actualizar el state
         this.props.crearCita(nuevaCita);
+
+        //Reiniciar el formulario
+        e.currentTarget.reset();
     }
 
     render() {

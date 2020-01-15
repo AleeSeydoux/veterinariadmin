@@ -4,8 +4,17 @@ import AgregarCita from './Componentes/AgregarCita';
 
 class App extends Component {
 
-  crearCita = (cita) => {
-    console.log(cita);
+  state = {
+    cita : []
+  }
+
+  crearCita = (nuevaCita) => {
+    // console.log(cita);
+    const citas = [...this.state.citas, nuevaCita];
+    console.log(citas);
+    this.setState({
+      citas
+    });
   }
   
   render(){
