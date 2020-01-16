@@ -6,7 +6,7 @@ import ListaCitas from './Componentes/ListaCitas';
 class App extends Component {
 
   state = {
-    cita : []
+    citas : []
   }
 
   crearCita = (nuevaCita) => {
@@ -33,7 +33,9 @@ class App extends Component {
             </div>
 
             <div className="col-md-6">
-                <ListaCitas/>
+                <ListaCitas
+                  citas={this.state.citas}
+                />
             </div>
   
           </div>
