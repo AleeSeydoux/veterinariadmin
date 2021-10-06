@@ -19,7 +19,8 @@ class Cita extends Component {
                     <p className="card-text"><span>Fecha:</span>{fecha}</p>
                     <p className="card-text"><span>Hora:</span>{hora}</p>
                     <p className="card-text"><span>Sintomas:</span></p>
-                    <p className="card-text"> {sintomas}</p>                    
+                    <p className="card-text"> {sintomas}</p>   
+                                 
                 
                 <button onClick={this.eliminarCita} className="btn btn-danger">
                 Borrar &times;
