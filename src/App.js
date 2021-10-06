@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Header from './Componentes/Header';
 import AgregarCita from './Componentes/AgregarCita';
 import ListaCitas from './Componentes/ListaCitas';
