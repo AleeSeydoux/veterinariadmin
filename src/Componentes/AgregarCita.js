@@ -46,7 +46,7 @@ class AgregarCita extends Component {
                 e.currentTarget.reset();
 
                 //Elimine el error
-                tthis.setState({
+                this.setState({
                     error: false
                 })
             }
